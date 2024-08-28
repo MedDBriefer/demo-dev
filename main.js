@@ -453,7 +453,7 @@ function NextAssignment({
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const getAssignments = async () => {
-      // console.log("class_code", classCode);
+      console.log("class_code", classCode);
       const userData = await getUserData();
       console.log("userData", userData);
       console.log("environment", _environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment);
@@ -730,7 +730,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
   production: false,
   firebaseProject: "ScottDev" || 0,
-  classCode: ({"NODE_ENV":"development","NX_FIREBASE_PROJECT":"ScottDev","NX_CLI_SET":"true","NX_LOAD_DOT_ENV_FILES":"true","NX_WORKSPACE_ROOT":"/Users/sts125/projects/monorepo","NX_TERMINAL_OUTPUT_PATH":"/Users/sts125/projects/monorepo/node_modules/.cache/nx/terminalOutputs/a072c5d192ef0d65b3fdc5b1a646e011037f33878454c32703ec5184f4c47a39","NX_STREAM_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"demo","NX_TASK_HASH":"a072c5d192ef0d65b3fdc5b1a646e011037f33878454c32703ec5184f4c47a39"}).NX_CLASS_CODE || "SVS"
+  classCode: ({"NODE_ENV":"development","NX_FIREBASE_PROJECT":"ScottDev","NX_CLI_SET":"true","NX_LOAD_DOT_ENV_FILES":"true","NX_WORKSPACE_ROOT":"/Users/sts125/projects/monorepo","NX_TERMINAL_OUTPUT_PATH":"/Users/sts125/projects/monorepo/node_modules/.cache/nx/terminalOutputs/b9c84441c96ada25ed9753846c427a29d35a68a3d76b5c1b7fd5c024327047d7","NX_STREAM_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"demo","NX_TASK_HASH":"b9c84441c96ada25ed9753846c427a29d35a68a3d76b5c1b7fd5c024327047d7"}).NX_CLASS_CODE || "SVS"
 };
 
 /***/ }),
