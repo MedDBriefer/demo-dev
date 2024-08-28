@@ -479,11 +479,12 @@ function NextAssignment({
   }, [auth, db, classCode, ready, getUserData, assignments]);
 
   if (!ready) {
+    console.log("classCode", classCode, "assignments", assignments);
     return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("div", {
       children: "Loading Assignments"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 100,
       columnNumber: 12
     }, this);
   }
@@ -493,7 +494,7 @@ function NextAssignment({
       to: `/scenario/${nextAssignment.publishedScenarioID}`
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 103,
       columnNumber: 12
     }, this);
   } // if (assignments) {
@@ -504,17 +505,17 @@ function NextAssignment({
       title: "Demo"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 110,
       columnNumber: 9
     }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("br", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 111,
       columnNumber: 9
     }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("h3", {
       children: "Your Assignments and Progress"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 112,
       columnNumber: 9
     }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(reactstrap__WEBPACK_IMPORTED_MODULE_8__["default"], {
       size: "sm",
@@ -525,27 +526,27 @@ function NextAssignment({
             children: "Scenario"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 115,
+            lineNumber: 116,
             columnNumber: 15
           }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("th", {
             children: "Completed"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 116,
+            lineNumber: 117,
             columnNumber: 15
           }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("th", {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 117,
+            lineNumber: 118,
             columnNumber: 15
           }, this)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 114,
+          lineNumber: 115,
           columnNumber: 13
         }, this)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 113,
+        lineNumber: 114,
         columnNumber: 11
       }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("tbody", {
         children: assignments.map((assign, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("tr", {
@@ -553,13 +554,13 @@ function NextAssignment({
             children: assign.name
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 123,
+            lineNumber: 124,
             columnNumber: 17
           }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("td", {
             children: assign.completed && "X"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 124,
+            lineNumber: 125,
             columnNumber: 17
           }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("td", {
             children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(reactstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -569,41 +570,41 @@ function NextAssignment({
               children: assign.completed ? "Run again" : "Run"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 126,
+              lineNumber: 127,
               columnNumber: 19
             }, this)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 125,
+            lineNumber: 126,
             columnNumber: 17
           }, this)]
         }, idx, true, {
           fileName: _jsxFileName,
-          lineNumber: 122,
+          lineNumber: 123,
           columnNumber: 15
         }, this))
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 120,
+        lineNumber: 121,
         columnNumber: 11
       }, this)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 112,
-      columnNumber: 9
-    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("br", {}, void 0, false, {
-      fileName: _jsxFileName,
-      lineNumber: 138,
+      lineNumber: 113,
       columnNumber: 9
     }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("br", {}, void 0, false, {
       fileName: _jsxFileName,
       lineNumber: 139,
       columnNumber: 9
+    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("br", {}, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 140,
+      columnNumber: 9
     }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("p", {
       children: "You can run the scenarios in any order.  You can also re-run any scenarios that you have previously completed to see how the debriefing differs when you log different observations."
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 140,
+      lineNumber: 141,
       columnNumber: 9
     }, this)]
   }, void 0, true); // }
@@ -730,7 +731,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
   production: false,
   firebaseProject: "ScottDev" || 0,
-  classCode: ({"NODE_ENV":"development","NX_FIREBASE_PROJECT":"ScottDev","NX_CLI_SET":"true","NX_LOAD_DOT_ENV_FILES":"true","NX_WORKSPACE_ROOT":"/Users/sts125/projects/monorepo","NX_TERMINAL_OUTPUT_PATH":"/Users/sts125/projects/monorepo/node_modules/.cache/nx/terminalOutputs/b9c84441c96ada25ed9753846c427a29d35a68a3d76b5c1b7fd5c024327047d7","NX_STREAM_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"demo","NX_TASK_HASH":"b9c84441c96ada25ed9753846c427a29d35a68a3d76b5c1b7fd5c024327047d7"}).NX_CLASS_CODE || "SVS"
+  classCode: ({"NODE_ENV":"development","NX_FIREBASE_PROJECT":"ScottDev","NX_CLI_SET":"true","NX_LOAD_DOT_ENV_FILES":"true","NX_WORKSPACE_ROOT":"/Users/sts125/projects/monorepo","NX_TERMINAL_OUTPUT_PATH":"/Users/sts125/projects/monorepo/node_modules/.cache/nx/terminalOutputs/03b61b5961d233ae4a535c4b414aa3e77ef3f716d33a3df64e349e8b5354dd2a","NX_STREAM_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"demo","NX_TASK_HASH":"03b61b5961d233ae4a535c4b414aa3e77ef3f716d33a3df64e349e8b5354dd2a"}).NX_CLASS_CODE || "SVS"
 };
 
 /***/ }),
