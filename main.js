@@ -372,15 +372,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2784);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7267);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(91412);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(77122);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7267);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(91412);
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(77122);
 /* harmony import */ var _meddbriefer_mdb_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(97650);
 /* harmony import */ var _meddbriefer_mdb_firebase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(44551);
 /* harmony import */ var _meddbriefer_mdb_ui__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(83325);
 /* harmony import */ var _meddbriefer_observer_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(13162);
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(49663);
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(57216);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(49663);
 var _jsxFileName = "/Users/sts125/projects/monorepo/apps/demo/src/components/NextAssignment.jsx";
+
 
 
 
@@ -420,7 +422,7 @@ function NextAssignment({
   observer,
   setObserver
 }) {
-  let history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
+  let history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useHistory)();
   const {
     auth,
     db
@@ -452,17 +454,19 @@ function NextAssignment({
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const getAssignments = async () => {
       // console.log("class_code", classCode);
-      const userData = await getUserData(); // console.log("userData", userData);
-
+      const userData = await getUserData();
+      console.log("userData", userData);
+      console.log("environment", _environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment);
       const completedScenarioIDs = userData.completedAssignments.map(assignment => assignment.publishedScenarioID);
       console.log("completedScenarioIDs:", completedScenarioIDs);
-      const classCodeSnapshot = await db.collection("class-codes").where("name", "==", userData.classCode).limit(1).get();
+      const classCodeSnapshot = await db.collection("class-codes").where("name", "==", userData.classCode || _environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.classCode).limit(1).get();
       let tasks = classCodeSnapshot.docs[0].data().assignments;
       tasks = tasks.map(assignment => {
         return Object.assign({}, assignment, {
           completed: completedScenarioIDs.includes(assignment.publishedScenarioID)
         });
       });
+      console.log("tasks", tasks);
       setAssignments(tasks); // const remainingAssignments = tasks.filter(assignment => !assignment.completed)
       // if (remainingAssignments.length > 0) {
       //   setNextAssignment(remainingAssignments[0])
@@ -475,131 +479,131 @@ function NextAssignment({
   }, [auth, db, classCode, ready, getUserData, assignments]);
 
   if (!ready) {
-    return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("div", {
+    return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("div", {
       children: "Loading Assignments"
-    }, void 0, false, {
-      fileName: _jsxFileName,
-      lineNumber: 96,
-      columnNumber: 12
-    }, this);
-  }
-
-  if (doRedirect) {
-    return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Redirect, {
-      to: `/scenario/${nextAssignment.publishedScenarioID}`
     }, void 0, false, {
       fileName: _jsxFileName,
       lineNumber: 99,
       columnNumber: 12
     }, this);
+  }
+
+  if (doRedirect) {
+    return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Redirect, {
+      to: `/scenario/${nextAssignment.publishedScenarioID}`
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 102,
+      columnNumber: 12
+    }, this);
   } // if (assignments) {
 
 
-  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(_meddbriefer_mdb_ui__WEBPACK_IMPORTED_MODULE_3__.MDBNavBar, {
+  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(_meddbriefer_mdb_ui__WEBPACK_IMPORTED_MODULE_3__.MDBNavBar, {
       title: "Demo"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 109,
       columnNumber: 9
-    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
+    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("br", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 110,
       columnNumber: 9
-    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("h3", {
+    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("h3", {
       children: "Your Assignments and Progress"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 111,
       columnNumber: 9
-    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(reactstrap__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(reactstrap__WEBPACK_IMPORTED_MODULE_8__["default"], {
       size: "sm",
       striped: true,
-      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("thead", {
-        children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
+      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("thead", {
+        children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("tr", {
+          children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("th", {
             children: "Scenario"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 112,
+            lineNumber: 115,
             columnNumber: 15
-          }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {
+          }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("th", {
             children: "Completed"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 113,
+            lineNumber: 116,
             columnNumber: 15
-          }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("th", {}, void 0, false, {
+          }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("th", {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 114,
+            lineNumber: 117,
             columnNumber: 15
           }, this)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 111,
+          lineNumber: 114,
           columnNumber: 13
         }, this)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 110,
+        lineNumber: 113,
         columnNumber: 11
-      }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("tbody", {
-        children: assignments.map((assign, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
+      }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("tbody", {
+        children: assignments.map((assign, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("tr", {
+          children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("td", {
             children: assign.name
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 120,
+            lineNumber: 123,
             columnNumber: 17
-          }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
+          }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("td", {
             children: assign.completed && "X"
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 121,
+            lineNumber: 124,
             columnNumber: 17
-          }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("td", {
-            children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(reactstrap__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("td", {
+            children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)(reactstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
               onClick: () => runScenario(assign),
               color: "success",
               size: "sm",
               children: assign.completed ? "Run again" : "Run"
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 123,
+              lineNumber: 126,
               columnNumber: 19
             }, this)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 122,
+            lineNumber: 125,
             columnNumber: 17
           }, this)]
         }, idx, true, {
           fileName: _jsxFileName,
-          lineNumber: 119,
+          lineNumber: 122,
           columnNumber: 15
         }, this))
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 117,
+        lineNumber: 120,
         columnNumber: 11
       }, this)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 112,
       columnNumber: 9
-    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
+    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("br", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 135,
+      lineNumber: 138,
       columnNumber: 9
-    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("br", {}, void 0, false, {
+    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("br", {}, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 136,
+      lineNumber: 139,
       columnNumber: 9
-    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)("p", {
-      children: "You can run the scenarios in any order.  You can also re-run any scenarios which you have previously completed to see how the debriefing differs when you log different observations."
+    }, this), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxDEV)("p", {
+      children: "You can run the scenarios in any order.  You can also re-run any scenarios that you have previously completed to see how the debriefing differs when you log different observations."
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 140,
       columnNumber: 9
     }, this)]
   }, void 0, true); // }
@@ -726,7 +730,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
   production: false,
   firebaseProject: "ScottDev" || 0,
-  classCode: ({"NODE_ENV":"development","NX_FIREBASE_PROJECT":"ScottDev","NX_CLI_SET":"true","NX_LOAD_DOT_ENV_FILES":"true","NX_WORKSPACE_ROOT":"/Users/sts125/projects/monorepo","NX_TERMINAL_OUTPUT_PATH":"/Users/sts125/projects/monorepo/node_modules/.cache/nx/terminalOutputs/928f4d0096391e66e361af4d35c500a60178c451ca44807e3c5dd5b49ac8147e","NX_STREAM_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"demo","NX_TASK_HASH":"928f4d0096391e66e361af4d35c500a60178c451ca44807e3c5dd5b49ac8147e"}).NX_CLASS_CODE || "SVS"
+  classCode: ({"NODE_ENV":"development","NX_FIREBASE_PROJECT":"ScottDev","NX_CLI_SET":"true","NX_LOAD_DOT_ENV_FILES":"true","NX_WORKSPACE_ROOT":"/Users/sts125/projects/monorepo","NX_TERMINAL_OUTPUT_PATH":"/Users/sts125/projects/monorepo/node_modules/.cache/nx/terminalOutputs/a072c5d192ef0d65b3fdc5b1a646e011037f33878454c32703ec5184f4c47a39","NX_STREAM_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"demo","NX_TASK_HASH":"a072c5d192ef0d65b3fdc5b1a646e011037f33878454c32703ec5184f4c47a39"}).NX_CLASS_CODE || "SVS"
 };
 
 /***/ }),
@@ -18782,7 +18786,6 @@ function AuthProvider({
   };
 
   const registerUserWithEmailAndPassword = (email, password, classCode) => {
-    console.log("registerUserWithEmailAndPassword()", email, password, classCode);
     auth.createUserWithEmailAndPassword(email, password).then(userCredential => {
       // userCredential.user.sendEmailVerification();
       setRegisterErrorMsg("");
@@ -18890,7 +18893,6 @@ function AuthProvider({
   const getUserRecord = uid => db.collection("users").doc(uid);
 
   const updateUserRecord = async (userDoc, field, value) => {
-    console.log("updateUserRecord", userDoc, field, value);
     await userDoc.set({
       [field]: value
     }, {
@@ -18921,7 +18923,6 @@ function AuthProvider({
       const data = doc.data();
       return data.name;
     });
-    console.log(classCodes);
     return classCodes;
   };
 
@@ -18957,7 +18958,7 @@ function AuthProvider({
     children: children
   }, void 0, false, {
     fileName: _jsxFileName,
-    lineNumber: 230,
+    lineNumber: 227,
     columnNumber: 5
   }, this);
 }
