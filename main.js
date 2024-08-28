@@ -459,7 +459,7 @@ function NextAssignment({
       console.log("environment", _environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment);
       const completedScenarioIDs = userData.completedAssignments.map(assignment => assignment.publishedScenarioID);
       console.log("completedScenarioIDs:", completedScenarioIDs);
-      const classCodeSnapshot = await db.collection("class-codes").where("name", "==", userData.classCode || _environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.classCode).limit(1).get();
+      const classCodeSnapshot = await db.collection("class-codes").where("name", "==", _environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.classCode).limit(1).get();
       let tasks = classCodeSnapshot.docs[0].data().assignments;
       tasks = tasks.map(assignment => {
         return Object.assign({}, assignment, {
@@ -731,7 +731,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
   production: false,
   firebaseProject: "ScottDev" || 0,
-  classCode: ({"NODE_ENV":"development","NX_FIREBASE_PROJECT":"ScottDev","NX_CLI_SET":"true","NX_LOAD_DOT_ENV_FILES":"true","NX_WORKSPACE_ROOT":"/Users/sts125/projects/monorepo","NX_TERMINAL_OUTPUT_PATH":"/Users/sts125/projects/monorepo/node_modules/.cache/nx/terminalOutputs/03b61b5961d233ae4a535c4b414aa3e77ef3f716d33a3df64e349e8b5354dd2a","NX_STREAM_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"demo","NX_TASK_HASH":"03b61b5961d233ae4a535c4b414aa3e77ef3f716d33a3df64e349e8b5354dd2a"}).NX_CLASS_CODE || "SVS"
+  classCode: ({"NODE_ENV":"development","NX_FIREBASE_PROJECT":"ScottDev","NX_CLI_SET":"true","NX_LOAD_DOT_ENV_FILES":"true","NX_WORKSPACE_ROOT":"/Users/sts125/projects/monorepo","NX_TERMINAL_OUTPUT_PATH":"/Users/sts125/projects/monorepo/node_modules/.cache/nx/terminalOutputs/917e3b4b1932f8327b1ab2f9e7f9393d64688b64ee8abb4a4ac2cb1294805c40","NX_STREAM_OUTPUT":"true","NX_TASK_TARGET_PROJECT":"demo","NX_TASK_HASH":"917e3b4b1932f8327b1ab2f9e7f9393d64688b64ee8abb4a4ac2cb1294805c40"}).NX_CLASS_CODE || "SVS"
 };
 
 /***/ }),
